@@ -19,7 +19,7 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-text">
-      <h1>Ohayou, I'm <span>Bella</span></h1>
+      <h1><span id="greeting"></span>, I'm <span>Bella</span></h1>
       <p>Seorang mahasiswi IT yang juga memiliki hobi cosplay dan menyanyi</p>
     </div>
     <div class="hero-img">
@@ -527,6 +527,19 @@
 
 
 <script>
+  const greetingElement = document.getElementById("greeting");
+  const hour = new Date().getHours();
+  let greetingText = "Ohayou";
+
+  if (hour >= 4 && hour < 11) {
+    greetingText = "Ohayou";
+  } else if (hour >= 11 && hour <= 18) {
+    greetingText = "Konnichiwa";
+  } else {
+    greetingText = "Konbanwa";
+  }
+
+  greetingElement.textContent = greetingText;
   document.querySelectorAll('.carousel').forEach(carousel => {
     const track = carousel.querySelector('.carousel-track');
     const slides = Array.from(track.children);
